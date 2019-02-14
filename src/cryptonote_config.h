@@ -46,7 +46,7 @@
 #define CURRENT_BLOCK_MAJOR_VERSION                     1
 #define CURRENT_BLOCK_MINOR_VERSION                     0
 #define CRYPTONOTE_BLOCK_FUTURE_TIME_LIMIT              500
-#define CRYPTONOTE_DEFAULT_TX_SPENDABLE_AGE             0
+#define CRYPTONOTE_DEFAULT_TX_SPENDABLE_AGE             10
 
 #define BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW               60
 
@@ -66,7 +66,7 @@
 #define COIN                                            ((uint64_t)10000) // pow(10, 12)
 
 #define FEE_PER_KB_OLD                                  ((uint64_t)1) // pow(10, 10)
-#define FEE_PER_KB                                      ((uint64_t)2) // 2 * pow(10, 9)
+#define FEE_PER_KB                                      ((uint64_t)20) // 2 * pow(10, 9)
 #define FEE_PER_BYTE                                    ((uint64_t)3)
 #define DYNAMIC_FEE_PER_KB_BASE_FEE                     ((uint64_t)2) // 2 * pow(10,9)
 #define DYNAMIC_FEE_PER_KB_BASE_BLOCK_REWARD            ((uint64_t)1) // 10 * pow(10,12)
