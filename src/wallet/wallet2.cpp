@@ -823,7 +823,7 @@ wallet2::wallet2(network_type nettype, uint64_t kdf_rounds, bool unattended):
   m_print_ring_members(false),
   m_store_tx_info(true),
   m_default_mixin(0),
-  m_default_priority(3),
+  m_default_priority(0),
   m_refresh_type(RefreshOptimizeCoinbase),
   m_auto_refresh(true),
   m_first_refresh_done(false),
@@ -3226,7 +3226,7 @@ bool wallet2::load_keys(const std::string& keys_file_name, const epee::wipeable_
     m_always_confirm_transfers = false;
     m_print_ring_members = false;
     m_default_mixin = 0;
-    m_default_priority = 3;
+    m_default_priority = 0;
     m_auto_refresh = true;
     m_refresh_type = RefreshType::RefreshDefault;
     m_confirm_missing_payment_id = true;
