@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2019, The Monero Project
-// 
+//
 // Copyright (c) 2014-2018, The Monero Project
 //
 // All rights reserved.
@@ -3425,7 +3425,7 @@ bool wallet2::store_keys(const std::string& keys_file_name, const epee::wipeable
   std::string original_address;
   std::string original_view_secret_key;
   if (m_original_keys_available)
-  {  
+  {
     original_address = get_account_address_as_str(m_nettype, false, m_original_address);
     value.SetString(original_address.c_str(), original_address.length());
     json.AddMember("original_address", value, json.GetAllocator());
@@ -3433,7 +3433,7 @@ bool wallet2::store_keys(const std::string& keys_file_name, const epee::wipeable
     value.SetString(original_view_secret_key.c_str(), original_view_secret_key.length());
     json.AddMember("original_view_secret_key", value, json.GetAllocator());
   }
-  
+
   // Serialize the JSON object
   rapidjson::StringBuffer buffer;
   rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -3728,7 +3728,7 @@ bool wallet2::load_keys(const std::string& keys_file_name, const epee::wipeable_
 
     GET_FIELD_FROM_JSON_RETURN_ON_ERROR(json, device_derivation_path, std::string, String, false, std::string());
     m_device_derivation_path = field_device_derivation_path;
-    
+
     if (json.HasMember("original_keys_available"))
     {
       GET_FIELD_FROM_JSON_RETURN_ON_ERROR(json, original_keys_available, int, Int, false, false);
@@ -4409,7 +4409,7 @@ std::string wallet2::make_multisig(const epee::wipeable_string &password,
       m_multisig_derivations = derivations;
     }
   }
-  
+
   if (!m_original_keys_available)
   {
     // Save the original i.e. non-multisig keys so the MMS can continue to use them to encrypt and decrypt messages
@@ -5121,7 +5121,7 @@ void wallet2::load(const std::string& wallet_, const epee::wipeable_string& pass
   {
     MERROR("Failed to save rings, will try again next time");
   }
-  
+
   try
   {
     m_message_store.read_from_file(get_multisig_wallet_state(), m_mms_file);
@@ -5298,14 +5298,14 @@ void wallet2::store_to(const std::string &path, const epee::wipeable_string &pas
     std::error_code e = tools::replace_file(new_file, m_wallet_file);
     THROW_WALLET_EXCEPTION_IF(e, error::file_save_error, m_wallet_file, e);
   }
-  
+
   if (m_message_store.get_active())
   {
     // While the "m_message_store" object of course always exist, a file for the message
     // store should only exist if the MMS is really active
     m_message_store.write_to_file(get_multisig_wallet_state(), m_mms_file);
   }
-  
+
 }
 //----------------------------------------------------------------------------------------------------
 uint64_t wallet2::balance(uint32_t index_major) const
@@ -5892,7 +5892,7 @@ std::string wallet2::dump_tx_to_str(const std::vector<pending_tx> &ptx_vector) c
     // Save tx construction_data to unsigned_tx_set
     txs.txes.push_back(get_construction_data_with_decrypted_short_payment_id(tx, m_account.get_device()));
   }
-  
+
   txs.transfers = export_outputs();
   // save as binary
   std::ostringstream oss;
@@ -7274,15 +7274,16 @@ void wallet2::get_outs(std::vector<std::vector<tools::wallet2::get_outs_entry>> 
         {
           if (d.amount == amount)
           {
-            THROW_WALLET_EXCEPTION_IF(d.start_height > segregation_fork_height, error::get_output_distribution, "Distribution start_height too high");
-            THROW_WALLET_EXCEPTION_IF(segregation_fork_height - d.start_height >= d.distribution.size(), error::get_output_distribution, "Distribution size too small");
-            THROW_WALLET_EXCEPTION_IF(segregation_fork_height - RECENT_OUTPUT_BLOCKS - d.start_height >= d.distribution.size(), error::get_output_distribution, "Distribution size too small");
-            THROW_WALLET_EXCEPTION_IF(segregation_fork_height - RECENT_OUTPUT_BLOCKS < d.start_height, error::get_output_distribution, "Bad start height");
-            uint64_t till_fork = d.distribution[segregation_fork_height - d.start_height];
-            uint64_t recent = till_fork - d.distribution[segregation_fork_height - RECENT_OUTPUT_BLOCKS - d.start_height];
-            segregation_limit[amount] = std::make_pair(till_fork, recent);
-            found = true;
-            break;
+              THROW_WALLET_EXCEPTION_IF(d.data.start_height > segregation_fork_height, error::get_output_distribution, "Distribution start_height too high");
+             THROW_WALLET_EXCEPTION_IF(segregation_fork_height - d.data.start_height >= d.data.distribution.size(), error::get_output_distribution, "Distribution size too small");
+             THROW_WALLET_EXCEPTION_IF(segregation_fork_height - RECENT_OUTPUT_BLOCKS - d.data.start_height >= d.data.distribution.size(), error::get_output_distribution, "Distribution size too small");
+             THROW_WALLET_EXCEPTION_IF(segregation_fork_height <= RECENT_OUTPUT_BLOCKS, error::wallet_internal_error, "Fork height too low");
+             THROW_WALLET_EXCEPTION_IF(segregation_fork_height - RECENT_OUTPUT_BLOCKS < d.data.start_height, error::get_output_distribution, "Bad start height");
+             uint64_t till_fork = d.data.distribution[segregation_fork_height - d.data.start_height];
+             uint64_t recent = till_fork - d.data.distribution[segregation_fork_height - RECENT_OUTPUT_BLOCKS - d.data.start_height];
+             segregation_limit[amount] = std::make_pair(till_fork, recent);
+             found = true;
+             break;
           }
         }
         THROW_WALLET_EXCEPTION_IF(!found, error::get_output_distribution, "Requested amount not found in response");
@@ -9660,8 +9661,6 @@ std::vector<wallet2::pending_tx> wallet2::create_transactions_from(const crypton
         }
         if (use_rct)
           transfer_selected_rct(tx.dsts, tx.selected_transfers, fake_outs_count, outs, unlock_time, needed_fee, extra,
-            test_tx, test_ptx, range_proof_type);
-          transfer_selected_rct(tx.dsts, tx.selected_transfers, fake_outs_count, outs, unlock_time, needed_fee, extra, 
             test_tx, test_ptx, rct_config);
         else
           transfer_selected(tx.dsts, tx.selected_transfers, fake_outs_count, outs, unlock_time, needed_fee, extra,
@@ -11405,8 +11404,6 @@ uint64_t wallet2::import_key_images(const std::string &filename, uint64_t &spent
     ski.push_back(std::make_pair(key_image, signature));
   }
 
-  return import_key_images(ski, spent, unspent);
-  
   return import_key_images(ski, offset, spent, unspent);
 }
 

@@ -100,8 +100,8 @@ uint16_t parse_public_rpc_port(const po::variables_map &vm)
 
   if (address->is_loopback() || address->is_local())
   {
-    MLOG_RED(el::Level::Warning, "--" << public_node_arg.name 
-      << " is enabled, but RPC server " << address->str() 
+    MLOG_RED(el::Level::Warning, "--" << public_node_arg.name
+      << " is enabled, but RPC server " << address->str()
       << " may be unreachable from outside, please check RPC server bind address");
   }
 
@@ -277,7 +277,7 @@ int main(int argc, char const * argv[])
       tools::set_max_concurrency(command_line::get_arg(vm, daemon_args::arg_max_concurrency));
 
     // logging is now set up
-    MGINFO("Monero '" << MONERO_RELEASE_NAME << "' (v" << MONERO_VERSION_FULL << ")");
+    MGINFO("Triton '" << MONERO_RELEASE_NAME << "' (v" << MONERO_VERSION_FULL << ")");
 
     // If there are positional options, we're running a daemon command
     {

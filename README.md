@@ -97,7 +97,7 @@ If you already have a repo cloned, initialize and update:
 
 ### Build instructions
 
-Monero uses the CMake build system and a top-level [Makefile](Makefile) that
+Triton uses the CMake build system and a top-level [Makefile](Makefile) that
 invokes cmake commands as needed.
 
 #### On Linux and macOS
@@ -118,16 +118,16 @@ invokes cmake commands as needed.
     https://github.com/zeromq/cppzmq to `/usr/local/include` should fix that error.
 
     *Note*: The instructions above will compile the most stable release of the
-    Monero software. If you would like to use and test the most recent software,
+    Triton software. If you would like to use and test the most recent software,
     use ```git checkout master```. The master branch may contain updates that are
     both unstable and incompatible with release software, though testing is always
     encouraged.
 
 * The resulting executables can be found in `build/release/bin`
 
-* Add `PATH="$PATH:$HOME/monero/build/release/bin"` to `.profile`
+* Add `PATH="$PATH:$HOME/triton/build/release/bin"` to `.profile`
 
-* Run Monero with `monerod --detach`
+* Run Triton with `tritond --detach`
 
 * **Optional**: build and run the test suite to verify the binaries:
 
@@ -196,9 +196,9 @@ application.
 **Building**
 
 * Change to the cloned directory, run:
-	
+
         cd triton
-	
+
         git checkout v3.0.0
 
 * If you are on a 64-bit system, run:

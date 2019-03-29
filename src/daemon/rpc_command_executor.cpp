@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2019, The Monero Project
-// 
+//
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without modification, are
@@ -556,8 +556,8 @@ bool t_rpc_command_executor::mining_status() {
     uint64_t daily = 86400ull / mres.block_target * mres.block_reward;
     uint64_t monthly = 86400ull / mres.block_target * 30.5 * mres.block_reward;
     uint64_t yearly = 86400ull / mres.block_target * 356 * mres.block_reward;
-    tools::msg_writer() << "Expected: " << cryptonote::print_money(daily) << " monero daily, "
-        << cryptonote::print_money(monthly) << " monero monthly, " << cryptonote::print_money(yearly) << " yearly";
+    tools::msg_writer() << "Expected: " << cryptonote::print_money(daily) << " triton daily, "
+        << cryptonote::print_money(monthly) << " triton monthly, " << cryptonote::print_money(yearly) << " yearly";
   }
 
   return true;

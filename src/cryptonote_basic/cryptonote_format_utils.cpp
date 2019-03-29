@@ -1177,7 +1177,7 @@ namespace cryptonote
     blobdata bd = get_block_hashing_blob(b);
     const int cn_variant = 1;
     const int light = 1;
-    crypto::cn_slow_hash(bd.data(), bd.size(), res, light,cn_variant);
+    crypto::cn_slow_hash(bd.data(), bd.size(), res, light,cn_variant,height);
     return true;
   }
   //---------------------------------------------------------------

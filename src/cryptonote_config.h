@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2019, The Monero Project
-// 
+//
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without modification, are
@@ -60,13 +60,15 @@
 #define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2    80000 //size of block (bytes) after which reward for block calculated using block size
 #define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V1    90000 //size of block (bytes) after which reward for block calculated using block size - before first fork
 #define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V5    1000000 //size of block (bytes) after which reward for block calculated using block size - second change, from v5
+#define CRYPTONOTE_LONG_TERM_BLOCK_WEIGHT_WINDOW_SIZE   100000 // size in blocks of the long term block weight median window
+#define CRYPTONOTE_SHORT_TERM_BLOCK_WEIGHT_SURGE_FACTOR 50
 #define CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE          600
 #define CRYPTONOTE_DISPLAY_DECIMAL_POINT                4
 // COIN - number of smallest units in one coin
 #define COIN                                            ((uint64_t)10000) // pow(10, 12)
 
 #define FEE_PER_KB_OLD                                  ((uint64_t)1) // pow(10, 10)
-#define FEE_PER_KB                                      ((uint64_t)20) // 2 * pow(10, 9)
+#define FEE_PER_KB                                      ((uint64_t)2) // 2 * pow(10, 9)
 #define FEE_PER_BYTE                                    ((uint64_t)3)
 #define DYNAMIC_FEE_PER_KB_BASE_FEE                     ((uint64_t)2) // 2 * pow(10,9)
 #define DYNAMIC_FEE_PER_KB_BASE_BLOCK_REWARD            ((uint64_t)1) // 10 * pow(10,12)
@@ -147,6 +149,8 @@
 #define HF_VERSION_MIN_MIXIN_10                 10
 #define HF_VERSION_ENFORCE_RCT                  4
 #define HF_VERSION_PER_BYTE_FEE                 10
+#define HF_VERSION_SMALLER_BP                   10
+#define HF_VERSION_LONG_TERM_BLOCK_WEIGHT       10
 
 #define PER_KB_FEE_QUANTIZATION_DECIMALS       4
 

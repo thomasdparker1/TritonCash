@@ -54,7 +54,7 @@ using epee::string_tools::pod_to_hex;
 using namespace crypto;
 
 // Increase when the DB structure changes
-#define VERSION 4
+#define VERSION 3
 
 namespace
 {
@@ -1447,7 +1447,7 @@ void BlockchainLMDB::open(const std::string& filename, const int db_flags)
         mdb_env_close(m_env);
         m_open = false;
         MFATAL("Existing lmdb database needs to be converted, which cannot be done on a read-only database.");
-        MFATAL("Please run monerod once to convert the database.");
+        MFATAL("Please run tritond once to convert the database.");
         return;
       }
       // Note that there was a schema change within version 0 as well.
