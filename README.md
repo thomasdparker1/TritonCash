@@ -1,33 +1,18 @@
-# Triton
-![Image of Triton](https://cdn.discordapp.com/attachments/402595075949068288/544379818926538763/ProjectTritonwordlogov2.png)
-Freedom for Streamers and Professional Gamers
-
-Project Triton [XTRI] is developing innovative donation platforms for the Online Streaming and ESports industries through blockchain technology
+# Triton-Cash
+A better Triton,  Triton-Cash.
 
 ### For announcements:
-[Website](https://xtri.network)  
-[Twitter](https://twitter.com/TritonNetwork)  
-[Discord](https://discord.gg/7FWufDt)
-
-# Sao
-<p align="center">
-  <img src="https://xtri.network/wp-content/uploads/2019/01/SAOTEXTSMALL-2.png" alt="Sao"/>
-</p>
-A new journey for Project Triton. The SAO stablecoin.
-SAO is a decentralized stablecoin based on mint and burn protocol called the Sao Dollar (SAO), which is minted from our established volatile coin Triton (XTRI).
-
-Check out the announcement [here](https://medium.com/@projecttriton/new-journey-the-sao-stablecoin-da6f9119a410)  
-Check out the paper [here](https://bit.ly/SAOTechinicalPaper)
-
+DISCORD ONLY 
+[Discord](https://discord.gg/KKAvrrV)
 
 
 # General Information
 Copyright (c) 2014-2018 The Monero Project.   
-Copyright (c) 2018 Project Triton.
+Copyright (c) 2018 Triton Cash Foundation.
 Portions Copyright (c) 2012-2013 The Cryptonote developers.
 
 ## Current maintainer
-- Harrison Hesslink (krakn)
+- Fettocini
 
 
 **Anyone is welcome to contribute to Triton's codebase!** If you have a fix or code change, feel free to submit it as a pull request directly to the "master" branch. In cases where the change is relatively small or does not affect other parts of the codebase it may be merged in immediately by any one of the collaborators. On the other hand, if the change is particularly large or complex, it is expected that it will be discussed at length either well in advance of the pull request being submitted, or even directly on the pull request.
@@ -105,8 +90,8 @@ invokes cmake commands as needed.
 * Install the dependencies
 * Change to the root of the source code directory, change to the most recent release branch, and build:
 
-        cd triton
-        git checkout v3.0.0
+        cd triton-cash
+        git checkout v1.0.0
         make
 
     *Optional*: If your machine has several cores and enough memory, enable
